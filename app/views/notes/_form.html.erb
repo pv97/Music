@@ -1,0 +1,16 @@
+<% action_url = (note.comment.nil?) ? notes_url : note_url(note) %>
+<% action = (note.comment.nil?) ? "post" : "patch" %>
+
+<form action="<%= action_url %>" method="post">
+  <input type="hidden" name="_method" value="<%= action %>">
+  <input type="hidden" name="authenticity_token" value="form_authenticity_token">
+
+  <label>
+    Comment:
+    <textarea name="note[comment]" rows="8" cols="40"><%= note.comment %></textarea>
+  </label>
+
+  <br/>
+
+  <input type="submit" value="Submit">
+</form>

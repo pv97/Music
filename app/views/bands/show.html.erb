@@ -1,0 +1,13 @@
+<%= button_to "Edit Band", edit_band_url(@band), method: :get %>
+<%= button_to "Delete Band", band_url(@band), method: :delete %>
+
+<br/>
+
+<%= button_to "Create Album", new_band_album_url(@band), method: :get %>
+
+<br/>
+
+<% @band.albums.each do |album| %>
+  <%= link_to album.title, album_url(album), method: :get %>
+  <br/>
+<% end %>

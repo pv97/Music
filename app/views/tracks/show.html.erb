@@ -1,0 +1,25 @@
+<%= button_to "Edit Track", edit_track_url(@track), method: :get %>
+<%= button_to "Delete Track", track_url(@track), method: :delete %>
+<%= button_to "Up One Level", album_url(@track.album_id), method: :get %>
+
+<label>
+  Lyrics:
+  <p>
+    <%= @track.lyrics %>
+  </p>
+</label>
+
+<br/>
+
+<label>
+  Comments:
+  <% @track.notes.includes(:users).each do |note| %>
+    <%= render :partial => "notes/note.html.erb", note: note %>
+    <br/>
+  <% end %>
+</label>
+
+<label>
+  Create Comment:
+  <%= render :partial => "notes/form.html.erb", note: Note.new %>
+</label>
