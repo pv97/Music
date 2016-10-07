@@ -63,7 +63,7 @@ Rails.application.routes.draw do
     resources :tracks, only: [:new]
   end
   resources :tracks, only: [:edit, :create, :show, :update, :destroy] do
-    resources :notes, only: [:new]
+    resources :notes, only: [:new, :create]
   end
-  resources :notes, only: [:edit, :create, :show, :update, :destroy]
+  resources :notes, only: [:edit, :show, :update, :destroy]
 end

@@ -8,6 +8,7 @@ class TracksController < ApplicationController
       p "hello"
       redirect_to track_url(track)
     else
+      flash[:errors] = track.errors
       redirect_to new_album_track_url
     end
   end
@@ -17,6 +18,7 @@ class TracksController < ApplicationController
     if track.update(track_params)
       redirect_to track_url(track)
     else
+      flash[:errors] = track.errors
       redirect_to edit_track_url(track)
     end
   end

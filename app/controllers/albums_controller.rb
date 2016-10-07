@@ -6,6 +6,7 @@ class AlbumsController < ApplicationController
     if album.save
       redirect_to album_url(album)
     else
+      flash[:errors] = album.errors
       redirect_to :back
     end
   end
@@ -19,6 +20,7 @@ class AlbumsController < ApplicationController
     if album.update(album_params)
       redirect_to album_url(album)
     else
+      flash[:errors] = album.errors
       redirect_to edit_album_url(album)
     end
   end

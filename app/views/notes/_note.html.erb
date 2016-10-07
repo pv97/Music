@@ -1,5 +1,20 @@
 <p>
-  <%= note.user.email %>
+  <label>
+    Author:
+    <%= note.user.email %>
+  </label>
+
   <br/>
-  <%= note.comment %>
+
+  <label>
+    Comment:
+    <br/>
+    <%= note.comment %>
+  </label>
+
+  <% if current_user.id == note.user.id %>
+    <%= button_to "Delete", note_url(note.id), method: :delete %>
+  <% end %>
+
 </p>
+<br/>

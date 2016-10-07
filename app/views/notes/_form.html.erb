@@ -1,4 +1,4 @@
-<% action_url = (note.comment.nil?) ? notes_url : note_url(note) %>
+<% action_url = (note.comment.nil?) ? track_notes_url(track_id) : note_url(note) %>
 <% action = (note.comment.nil?) ? "post" : "patch" %>
 
 <form action="<%= action_url %>" method="post">
@@ -7,6 +7,7 @@
 
   <label>
     Comment:
+    <br/>
     <textarea name="note[comment]" rows="8" cols="40"><%= note.comment %></textarea>
   </label>
 

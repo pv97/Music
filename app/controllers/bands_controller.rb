@@ -10,6 +10,7 @@ class BandsController < ApplicationController
     if band.save
       redirect_to band_url(band)
     else
+      flash[:errors] = band.errors
       redirect_to new_band_url
     end
   end
@@ -19,6 +20,7 @@ class BandsController < ApplicationController
     if band.update(band_params)
       redirect_to band_url(band)
     else
+      flash[:errors] = band.errors
       redirect_to edit_band_url(band)
     end
   end
